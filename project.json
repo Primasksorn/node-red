@@ -1,0 +1,394 @@
+[
+    {
+        "id": "8358342c.3cffd8",
+        "type": "tab",
+        "label": "DHT11-MySQL-Project",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b854c2bd.1e35c",
+        "type": "mqtt in",
+        "z": "8358342c.3cffd8",
+        "name": "sensor/tempc",
+        "topic": "sensor/tempc",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "4187977.a538c68",
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "8ee34cc1.563d1",
+                "e9cd4c63.ec3db",
+                "ce47a228.07d0d",
+                "2c53ac8c.9185b4"
+            ]
+        ]
+    },
+    {
+        "id": "56c56918.954628",
+        "type": "mqtt in",
+        "z": "8358342c.3cffd8",
+        "name": "sensor/humid",
+        "topic": "sensor/humid",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "4187977.a538c68",
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "8ee34cc1.563d1",
+                "34618ca7.6b1dc4",
+                "fe033c08.4cdc1",
+                "2c53ac8c.9185b4"
+            ]
+        ]
+    },
+    {
+        "id": "8ee34cc1.563d1",
+        "type": "debug",
+        "z": "8358342c.3cffd8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e9cd4c63.ec3db",
+        "type": "ui_gauge",
+        "z": "8358342c.3cffd8",
+        "name": "",
+        "group": "f45e63c7.6534d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ff0000",
+            "#000000",
+            "#ffae00"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 530,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "34618ca7.6b1dc4",
+        "type": "ui_gauge",
+        "z": "8358342c.3cffd8",
+        "name": "",
+        "group": "da9a1d68.5ef44",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 520,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ce47a228.07d0d",
+        "type": "ui_chart",
+        "z": "8358342c.3cffd8",
+        "name": "",
+        "group": "f45e63c7.6534d",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#ff0000",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 510,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fe033c08.4cdc1",
+        "type": "ui_chart",
+        "z": "8358342c.3cffd8",
+        "name": "",
+        "group": "da9a1d68.5ef44",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#ff0000",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 510,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2c53ac8c.9185b4",
+        "type": "join",
+        "z": "8358342c.3cffd8",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": ",",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 400,
+        "y": 360,
+        "wires": [
+            [
+                "185a7326.21188d"
+            ]
+        ]
+    },
+    {
+        "id": "185a7326.21188d",
+        "type": "function",
+        "z": "8358342c.3cffd8",
+        "name": "insert",
+        "func": "var newMsg = { payload: msg.payload.split(\",\") };\nnewMsg.topic=\"insert into dht values (NULL,'\"+newMsg.payload[0]+\"','\"+newMsg.payload[1]+\"',CURRENT_TIMESTAMP)\";\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 550,
+        "y": 360,
+        "wires": [
+            [
+                "f680024f.50e24"
+            ]
+        ]
+    },
+    {
+        "id": "f680024f.50e24",
+        "type": "mysql",
+        "z": "8358342c.3cffd8",
+        "mydb": "13ba6f79.b49be1",
+        "name": "sensors",
+        "x": 720,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bd3cc97d.bca5e8",
+        "type": "inject",
+        "z": "8358342c.3cffd8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "select * from dht order by id desc",
+        "payload": "",
+        "payloadType": "date",
+        "x": 400,
+        "y": 440,
+        "wires": [
+            [
+                "51f10634.49b0c8"
+            ]
+        ]
+    },
+    {
+        "id": "51f10634.49b0c8",
+        "type": "mysql",
+        "z": "8358342c.3cffd8",
+        "mydb": "13ba6f79.b49be1",
+        "name": "sensors",
+        "x": 560,
+        "y": 440,
+        "wires": [
+            [
+                "8730815e.55bc7"
+            ]
+        ]
+    },
+    {
+        "id": "8730815e.55bc7",
+        "type": "ui_template",
+        "z": "8358342c.3cffd8",
+        "group": "9bcd7aa0.8d75b8",
+        "name": "",
+        "order": 5,
+        "width": "6",
+        "height": "8",
+        "format": "<table style=\"width:100%;font-size: 12px;\">\n<tr>\n<th>ID</th>\n<th>Temperature</th>\n<th>Humidity</th>\n<th>Timestamp</th>\n</tr>\n<tr ng-repeat=\"x in msg.payload | limitTo:20\">\n<td>{{msg.payload[$index].id}}</td>\n<td>{{msg.payload[$index].temp}}</td>\n<td>{{msg.payload[$index].humi}}</td>\n<td>{{msg.payload[$index].timerecord}}</td>\n</tr>\n</table>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 720,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4187977.a538c68",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "34.87.187.15",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "f45e63c7.6534d",
+        "type": "ui_group",
+        "name": "อุณหภูมิ (Temperature)",
+        "tab": "fd05722.6b3779",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false
+    },
+    {
+        "id": "da9a1d68.5ef44",
+        "type": "ui_group",
+        "name": "ความชื้น (Humidity)",
+        "tab": "fd05722.6b3779",
+        "order": 2,
+        "disp": true,
+        "width": "7",
+        "collapse": false
+    },
+    {
+        "id": "13ba6f79.b49be1",
+        "type": "MySQLdatabase",
+        "name": "mysql",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "sensors",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "9bcd7aa0.8d75b8",
+        "type": "ui_group",
+        "name": "MySQL (TOP20)",
+        "tab": "fd05722.6b3779",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "fd05722.6b3779",
+        "type": "ui_tab",
+        "name": "Project",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
